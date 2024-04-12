@@ -365,7 +365,8 @@ namespace T6_ACS
 
         private void btnMod_Click(object sender, EventArgs e)
         {
-
+            ModMenu form = new ModMenu(getId);
+            form.ShowDialog();
         }
     }
 }
