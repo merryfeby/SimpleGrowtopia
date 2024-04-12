@@ -12,23 +12,13 @@ namespace T6_ACS
     {
         private static string connString = "";
         public static SqlConnection conn = null;
-        const string NAMADB = "db_rubik";
+        const string NAMADB = "db_growtopia_sederhana";
         public DB()
         {
-            //class ini digunakan untuk menyimpan konfigurasi database
             try
             {
-                //yang data source sesuain sama nama server di sql server
-                string connString = $"Data Source=.;Initial Catalog={NAMADB};User ID={"user1"};Password={"user1"};";
-
-                //connection string ini digunakan semacam identitas pengenal buat connect ke database
-                //string yang ada dollarnya ($) ini untuk interpolation string, silahkan cari sendiri apa itu :)
-
+                string connString = $"Data Source=.;Initial Catalog={NAMADB};Integrated Security=True;";
                 conn = new SqlConnection(connString);
-                //ini untuk init connection, supaya kita nantinya bisa pakai connection ini dan gaperlu buat connection baru lagi.
-                //dimasukkin try catch karena kalo ada error si sql bakal ngethrow error
-
-                //PASTIKAN DI HALAMAN CONNECTION CLASS DB DI INIT, kalau gak ndabisa di open / close
             }
             catch (Exception exc)
             {
